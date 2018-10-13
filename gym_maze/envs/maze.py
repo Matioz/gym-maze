@@ -7,6 +7,7 @@ from matplotlib import colors
 import gym
 from gym import spaces
 from gym.utils import seeding
+from .generators import RandomMazeGenerator
 
 
 class MazeEnv(gym.Env):
@@ -14,7 +15,7 @@ class MazeEnv(gym.Env):
     metadata = {'render.modes': ['human', 'rgb_array']}
     
     def __init__(self, 
-                 maze_generator, 
+                 maze_generator=RandomMazeGenerator(21, 21),
                  pob_size=1,
                  action_type='VonNeumann',
                  obs_type='full',
